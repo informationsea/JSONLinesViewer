@@ -2,7 +2,7 @@
 
 sbt assembly
 
-if [ "x$TRAVIS_COMMIT" != "x" ];then
+if [ "x$TRAVIS_TAG" != "x" ];then
 VERSION=$TRAVIS_TAG
 else
 VERSION=unknown
@@ -14,4 +14,4 @@ cp target/scala-2.12/JSONLinesViewer-assembly-0.1.jar $DEPLOY/jsonlinesviewer.ja
 cp LICENSE $DEPLOY/
 cp README.md $DEPLOY/
 cd `dirname $DEPLOY`
-zip -r JSONLinesViewer.zip JSONLinesViewer-$VERSION
+zip -r JSONLinesViewer-$VERSION.zip JSONLinesViewer-$VERSION
