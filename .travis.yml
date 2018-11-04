@@ -1,6 +1,17 @@
 language: scala
 scala:
-   - 2.12.2
+- 2.12.2
 jdk:
-   - openjdk8
-   - openjdk11
+- openjdk8
+- openjdk11
+before_deploy:
+  - bash -xe deploy.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: iYsitfOsqGezAvL/Ffjs4ywHTzrDqkkf6Rh6d8cAX9hAkUSVyPwnYrFksFwqEEdfk5Z3u3ukjt3MgtOU8tunGIZDLUagZyewL+lbA0lxqzlyGSfQVBU4Gc1LSZRW2MLCFNPNO6it68sjWf2dcw0tnPKYl9qB3Q7xnUhLFepytvLjA1ZbfrpXsDLAj7Y4Je/+ExKsZVSGCAiuIE20vW5KDRWxU85Gd8QrWGLJqKh0FfbDYeRtK6vQ+QEz+aNx1VhgNHOwnEHrPmMn7PPW7ZWct1QYNdkHG3q7ACYTCLXBmIruys4NTEXlRuxDkcLTXZtz0xbny2NB0fP4b0Iwy8TaDuHWpvmnMHaqc/KkDIScM/hincPWn0OHWHGrIvbaNZjhstS2me/+17CIHj7yHPn/UkZDa7EBO2wO6P2ZpNjTrD4v5uehNIMBxEPgjmUTQhU9ssscnMVwXAKbJbnZy5DwC8Ukef04T7c9R1rfm0BaSyeYfHx8n2+gLjvGYB0XgoT+MBOtkg9+tioxp9rhCcTNhoEaVmUC8bPSbuQ6aUK3NcX+pW8XoHBmdIKqpaCgNWqAZWeetyUkZI9wY81qUuVp5WKRzddB0YR5Ut7zgSP/auh7OgBY65Jxs5sbQhg5/5/dkvNRoYsgkDFM255WVB0cTmmkH1jsMxDanrt2fy7V16U=
+  file: target/deploy/JSONLinesViewer-$TRAVIS_TAG.zip
+  on:
+    repo: informationsea/JSONLinesViewer
+    tags: true
+skip_cleanup: true
