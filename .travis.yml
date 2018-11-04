@@ -14,4 +14,4 @@ deploy:
   on:
     repo: informationsea/JSONLinesViewer
     tags: true
-skip_cleanup: true
+  skip_cleanup: true
